@@ -1,0 +1,52 @@
+<HTML><HEAD></HEAD>
+<BODY bgcolor="#F1F1FD">
+
+<FORM  NAME="LoginPage"  ACTION="/LoginServlet" METHOD ="POST">
+<TABLE cellPadding="3" ALIGN="center" >
+<TR bgcolor="#d3d3d3">
+<TD>USERNAME:</TD>
+<TD>
+<INPUT TYPE="text" NAME="UserName" Value="" SIZE="15" focused>
+</TD>
+</TR>
+<TR bgcolor="#d3d3d3">
+<TD>PASSWORD:</TD>
+<TD>
+<INPUT TYPE="password" NAME="PassWord" Value="" SIZE="15">
+</TD>
+</TR>
+    <TR>
+        <TD>
+            <input type="submit" value="Login" style="border: 1px solid black; height: 27px; width: 80px;color: grey; font-size: 15px" onClick="checkInputs()"/>
+<!--<INPUT TYPE="button" style="border: 1px solid black; height: 27px; width: 80px;color: grey; font-size: 15px" NAME="submitBTN" VALUE="Login" onClick="checkInputs()">-->
+<!--A HREF='/CSCI6810/Withdraw.jsp?UserID=someone@yahoo.com' TARGET='display'>Withdraw</A-->
+<!--A HREF='/CSCI6810/PreTransfer.jsp?UserID=someone@yahoo.com' TARGET='display'>Transfer</A-->
+    First time user? Click <button style="border: 1px solid black; height: 27px; width: 100px; font-size: 15px">
+            <A HREF='SignUp.html' TARGET='display' style="text-decoration: none;color: grey">Sign Up</A></button>
+</TD>
+</TR>
+</TABLE>
+</FORM>
+</BODY>
+<SCRIPT LANGUAGE="JavaScript">
+function checkInputs()
+{
+var Prompts = "";
+Username = window.document.LoginPage.UserName.value;
+Password = window.document.LoginPage.PassWord.value;
+if (Username == "" || Password == "") {
+if (Username == "")
+Prompts +="Please enter your username!\n";
+if (Password == "")
+Prompts +="Please enter your password!\n";
+if (Prompts != "")
+window.alert(Prompts);
+} else {
+  document.LoginPage.submit();
+
+}
+}
+</SCRIPT>
+</HTML>
+
+
