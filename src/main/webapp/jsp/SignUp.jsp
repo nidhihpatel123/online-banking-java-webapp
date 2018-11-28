@@ -16,8 +16,8 @@
 	String Re_enterPassword = new String("");
 	String FullName = new String("");
 	
-	Username = request.getParameter( "Username" );
-	Password = request.getParameter( "PassWord" );
+	Username = request.getParameter( "UsernameField" );
+	Password = request.getParameter( "PasswordField" );
         Re_enterPassword = request.getParameter( "RePasswordField" );
         FullName = request.getParameter( "NameField" );
               
@@ -34,13 +34,13 @@
 		<h4 ALIGN='center'>Congratulations! You have an account with us. Thank you! You can login now.</h4>
 		<FORM NAME="LoginPage" ACTION="/LoginSrvlet" METHOD ="POST">
 		<TABLE cellPadding='3' ALIGN='center'>
-		<TR bgcolor='#808080'>
+		<TR bgcolor='#d3d3d3'>
 		<TD>USERNAME:</TD>
 		<TD>
 		<INPUT TYPE='text' NAME='UserName' Value='<%= Username %>' SIZE='15' focused>
 		</TD>
 		</TR>
-		<TR bgcolor="#808080">
+		<TR bgcolor="#d3d3d3">
 		<TD>PASSWORD:</TD>
 		<TD>
 		<INPUT TYPE='password' NAME='PassWord' Value='' SIZE='15'>

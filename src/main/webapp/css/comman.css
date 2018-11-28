@@ -1,0 +1,29 @@
+.Styledrop{
+    height: 27px;
+    width: 200px;
+    border: 1px solid black;
+    font-size: 15px;
+
+}
+.StyleLabel{
+    height: 27px;
+    width: 170px;
+    font-size: 20px;
+}
+
+.StyleText{
+    height: 27px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.StyleBtn{
+    border: 1px solid black;
+    height: 27px;
+    width: 170px;
+    font-size: 15px;
+}
+
+.StyleBtn:hover{
+    background-color: lightgrey;
+}

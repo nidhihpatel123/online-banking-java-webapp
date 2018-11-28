@@ -47,26 +47,7 @@ public class SignUpServlet extends HttpServlet {
    public void doPost (HttpServletRequest req, HttpServletResponse res )
       throws ServletException, IOException
    {
-      //obtains a character-based output stream that enables
-      //text data to be sent to the client
-	   System.out.println("Hello I am in Do Post");
-      output = res.getWriter();
-
-      //specifies the MIME type of the response to the browser
-      res.setContentType( "text/html" );
-
-      //returns the value associated with a parameter sent to
-      //the servlet as part of a post request
-      Username = req.getParameter( "UsernameField" );
-      Password = req.getParameter( "PasswordField" );
-      Re_enterPassword = req.getParameter( "RePasswordField" );
-      CustomerName = req.getParameter( "NameField" );
-	   System.out.println(Username);
-      Account Acct = new Account(Username, Password, Re_enterPassword, CustomerName);
-      if (Acct.signUp())
-           showSuccess();
-      else
-           output.println("Account creation failed because of existing username or invalid username. Please try again!");
+	   req.getRequestDispatcher("/jsp/SignUp.jsp").forward(req, res);
    }
 
    public void showSuccess()
