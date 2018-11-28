@@ -17,10 +17,10 @@ public class openAccountServlet extends HttpServlet {
         doPost(Req,Res);
     }
 
-    public void doPost(HttpServletRequest req, HttpServletResponse Res)
+    public void doPost(HttpServletRequest Req, HttpServletResponse Res)
             throws ServletException, IOException {
 
-        req.getRequestDispatcher("jsp/openAccount.jsp");
+        Req.getRequestDispatcher("jsp/openAccount.jsp").forward(Req,Res);
 
     }
 }

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link href="/css/comman.css" rel="stylesheet" type="text/css">
+<link href="../css/comman.css" rel="stylesheet" type="text/css">
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.lang.*" %>
@@ -18,19 +18,21 @@
 <%
     String toAcc = request.getParameter("toAccount");
     String fromAcc = request.getParameter("fromAccount");
-    String UserID = request.getParameter("userName");
+    String userName = request.getParameter("userName");
     String CustomerName = request.getParameter("CustomerName");
     String balance = request.getParameter("AmountField");
-    String  Acctype = request.getParameter("line");
-
-
-    System.out.println(balance);
-    System.out.println(UserID);
-    System.out.println(CustomerName);
+    String transferStatus = "";
     System.out.println(toAcc);
     System.out.println(fromAcc);
 
-    TransferControl transfercheck = new TransferControl(toAcc,fromAcc,UserID,CustomerName,balance);
+    TransferControl transfercheck = new TransferControl(toAcc,fromAcc,userName,CustomerName,balance);
+   boolean resultFlag = transfercheck.transferLogic();
+    if(resultFlag){
+        transferStatus= "Successful Transfer!";
+    }
+    else {
+        transferStatus= "Fail Transfer! Try again!";
+    }
 
 %>
 <%
@@ -43,8 +45,8 @@
 <head>
     <title>Title</title>
 </head>
-<body>
-    <h1>User Name is</h1>
-<h1><%=CustomerName%></h1>
+<body background="../images/bg15.jpg">
+
+<h1 class="msgresult"><%=transferStatus%></h1>
 </body>
 </html>

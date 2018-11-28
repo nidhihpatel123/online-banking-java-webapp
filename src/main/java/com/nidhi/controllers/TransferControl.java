@@ -70,4 +70,56 @@ public class TransferControl {
             }
         }
     }
+
+    public boolean transferLogic(){
+        boolean flag= false;
+        String fromAccountType = fromAccount.substring(0,8);
+        String toAccountType = toAccount.substring(0,8);
+
+        if (fromAccount.equals("Select Account") || toAccount.equals("Select Account")) {
+            JOptionPane.showMessageDialog(null, "Please choose Account type!", "Confirmation", JOptionPane.INFORMATION_MESSAGE);
+        }
+        if(fromAccountType.equals("Checking") && toAccountType.equals("Savings ")){
+            String fromAccountNumber = fromAccount.substring(11,19);
+            String toAccountNumber = toAccount.substring(10,18);
+            CheckingAccount check = new CheckingAccount(fromAccountNumber, Name, UName, Balance);
+            Boolean withdrawstatus = check.Withdraw();
+            Boolean depositstatus = false;
+            if(withdrawstatus){
+                SavingsAccount savacc = new SavingsAccount(toAccountNumber, Name, UName,"0.0", Balance);
+                depositstatus = savacc.deposit();
+            }
+            if (withdrawstatus && depositstatus) {
+                flag =true;
+                Transaction transct = new Transaction(Balance, "Transfer",fromAccountNumber,toAccountNumber,UName);
+                transct.record();
+            } else {
+                flag= false;
+
+            }
+        }
+        if(fromAccountType.equals("Savings ") && toAccountType.equals("Checking")){
+            String fromAccountNumber = fromAccount.substring(10,18);
+            String toAccountNumber = toAccount.substring(11,19);
+
+            SavingsAccount savacc = new SavingsAccount(fromAccountNumber, Name, UName,"0.0", Balance);
+            Boolean withdrawstatus = savacc.withdraw();
+            Boolean depositstatus = false;
+            if(withdrawstatus){
+                CheckingAccount check = new CheckingAccount(toAccountNumber, Name, UName, Balance);
+                depositstatus = check.deposit();
+            }
+
+            if (withdrawstatus && depositstatus) {
+                flag =true;
+                Transaction transct = new Transaction(Balance, "Transfer",fromAccountNumber,toAccountNumber,UName);
+                transct.record();
+            } else {
+                flag= false;
+
+            }
+        }
+        return flag;
+    }
+
 }

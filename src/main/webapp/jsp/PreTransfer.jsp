@@ -42,13 +42,13 @@
                         <option selected value="Select from Account"> Select From Account</option>
                       <c:forEach var="line"  items="${SavingAccNumbers}">
                           <c:if test="${line != null || 'null'}">
-                              <option name="Saving" value="${line}-saving"> ****${line.substring(4,8)} - Savings</option>
+                              <option name="Saving" value="Savings - ${line}"> ****${line.substring(4,8)} - Savings</option>
                           </c:if>
 
                       </c:forEach>
                         <c:forEach var="obj" items="${CheckingaccNumbers}">
                             <c:if test="${obj != null || 'null'}">
-                                <option name="checking" value="${obj}-checking"> ****${obj.substring(4,8)} - Checking</option>
+                                <option name="checking" value="Checking - ${obj}"> ****${obj.substring(4,8)} - Checking</option>
                             </c:if>
                         </c:forEach>
                   </select>
@@ -62,13 +62,13 @@
                         <option selected value="Select To Account"> Select To Account</option>
                         <c:forEach var="line" items="${SavingAccNumbers}">
                             <c:if test="${line != null || 'null'}">
-                                <option name="Saving" value="${line}-saving"> ****${line.substring(4,8)} - Savings</option>
+                                <option name="Saving" value="Savings - ${line}"> ****${line.substring(4,8)} - Savings</option>
                             </c:if>
 
                         </c:forEach>
                         <c:forEach var="obj" items="${CheckingaccNumbers}">
                             <c:if test="${obj != null || 'null'}">
-                                <option name="checking" value="${obj}-checking"> ****${obj.substring(4,8)} - Checking</option>
+                                <option name="checking" value="Checking - ${obj}"> ****${obj.substring(4,8)} - Checking</option>
                             </c:if>
                         </c:forEach>
                     </select>
