@@ -31,7 +31,7 @@
     if (accountType.equals("Checking")) {
         CheckingAccount CA = new CheckingAccount(accnum, customer, username, depositAmount);
         if (CA.openAcct()) {
-           msg = "Successfully Account created";
+           msg = "Successfully Account created!";
             System.out.println(msg);
             Transaction ts = new Transaction(depositAmount, "Deposit", "Checking", null, username);
             ts.record();
@@ -46,7 +46,7 @@
         SavingsAccount SA = new SavingsAccount(accnum, customer, username,InterestRate, depositAmount);
         if (SA.openSavAcct()) {
             System.out.println("successful!");
-            msg = "Successfully Account created";
+            msg = "Successfully Account created!";
             Transaction ts = new Transaction(depositAmount, "Deposit", "Savings", null, username);
             ts.record();
 

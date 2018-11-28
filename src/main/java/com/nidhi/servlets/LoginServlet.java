@@ -85,10 +85,10 @@ public class LoginServlet extends HttpServlet {
         Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration:none;\"><a href=\"/jsp/PreopenAccount.jsp\" TARGET='display'>Open Account</a></button>");
         Buf.append("</TD>\n");
         Buf.append("<TD>\n");
-        Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration: none\"><a href=\"/app/Web/withdraw.html\">Withdraw</a></button>");
+        Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration: none\"><a href=\"jsp/PreWithdraw.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display') >Withdraw</a></button>");
         Buf.append("</TD>\n");
         Buf.append("<TD>\n");
-        Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration: none\"><a href=\"/app/Web/deposit.html\">Deposit</a></button>");
+        Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration: none\"><a href=\"/jsp/PreDeposit.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display') >Deposit</a></button>");
         Buf.append("</TD>\n");
         Buf.append("<TD>\n");
         Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px;text-decoration: none\"><a href=\"/jsp/PreTransfer.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display'>Transfer</a></button>");
