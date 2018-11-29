@@ -40,6 +40,8 @@ System.out.println(AccType);
             }
         } else if (AccType.equals("Savings ")) {
             String AccountNumber = depositToAcc.substring(10,18);
+            System.out.println("Printing Account number");
+            System.out.println(AccountNumber);
             SavingsAccount sav = new SavingsAccount(AccountNumber, customerName, uname, "0.0", balance);
             Boolean resultdoneSav = sav.deposit();
             if (resultdoneSav) {

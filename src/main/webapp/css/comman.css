@@ -31,5 +31,7 @@
 .msgresult{
     color: grey;
     font-family: Calibri;
+    text-align: center;
+    font-size: 18px;
 
 }

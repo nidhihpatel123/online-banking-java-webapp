@@ -42,7 +42,7 @@ public class Account
 		        Statement Stmt = DBConn.createStatement();
 		        String SQL_Command = "SELECT Username FROM Account WHERE Username ='"+Username+"'"; //SQL query command
 		        ResultSet Rslt = Stmt.executeQuery(SQL_Command); //Inquire if the username exsits.
-				System.out.println(Rslt.next());
+
 		        done = done && !Rslt.next();
 		        if (done) {
 				    SQL_Command = "INSERT INTO Account(Username, Password, Name) VALUES ('"+Username+ "','"+Password+"','"+Name+"')"; //Save the username, password and Name

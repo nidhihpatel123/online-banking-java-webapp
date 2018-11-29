@@ -38,7 +38,7 @@ public class SignUpServlet extends HttpServlet {
    public void doGet (HttpServletRequest req, HttpServletResponse res )
       throws ServletException, IOException
    {
-	   System.out.println("Hello I am in DoGet");
+
    	doPost(req, res);
    }
 

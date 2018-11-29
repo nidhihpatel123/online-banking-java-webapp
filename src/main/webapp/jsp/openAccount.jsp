@@ -1,4 +1,5 @@
 <%@ page import="com.nidhi.controllers.OpenBankAccountControl" %>
+<link href="/css/comman.css" rel="stylesheet" type="text/css">
 <%@ page import="com.nidhi.entities.CheckingAccount" %>
 <%@ page import="com.nidhi.entities.Transaction" %>
 <%@ page import="javax.swing.*" %>
@@ -22,18 +23,13 @@
     String  InterestRate = "0.0";
     String msg ="";
 
-    System.out.println(accountType);
-    System.out.println(username);
-    System.out.println(customer);
-    System.out.println(accnum);
-    System.out.println(depositAmount);
 
     if (accountType.equals("Checking")) {
         CheckingAccount CA = new CheckingAccount(accnum, customer, username, depositAmount);
         if (CA.openAcct()) {
            msg = "Successfully Account created!";
             System.out.println(msg);
-            Transaction ts = new Transaction(depositAmount, "Deposit", "Checking", null, username);
+            Transaction ts = new Transaction(depositAmount, "Deposit", null, accnum, username);
             ts.record();
 
         } else {
@@ -47,7 +43,7 @@
         if (SA.openSavAcct()) {
             System.out.println("successful!");
             msg = "Successfully Account created!";
-            Transaction ts = new Transaction(depositAmount, "Deposit", "Savings", null, username);
+            Transaction ts = new Transaction(depositAmount, "Deposit", null, accnum, username);
             ts.record();
 
         } else {
@@ -64,6 +60,6 @@
     <title>Title</title>
 </head>
 <body background="../images/bg15.jpg">
-<h1><%=msg%></h1>
+<h1 class="msgresult"><%=msg%></h1>
 </body>
 </html>

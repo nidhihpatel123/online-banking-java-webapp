@@ -141,7 +141,7 @@ class TransferBOPanel extends JPanel implements ActionListener
                 String AccountNumber = AccountType.substring(10,18);
                 SavingsAccount sav = new SavingsAccount(AccountNumber, Name, UName, "0.0", Balance);
                 Boolean resultdoneSav = sav.deposit();
-                System.out.println("I am here");
+
 
                 if (resultdoneSav) {
                     JOptionPane.showMessageDialog(null, "Successfully Deposit!", "Confirmation", JOptionPane.INFORMATION_MESSAGE);

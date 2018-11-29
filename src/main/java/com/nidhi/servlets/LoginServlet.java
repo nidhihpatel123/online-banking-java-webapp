@@ -33,9 +33,9 @@ public class LoginServlet extends HttpServlet {
     public void doGet (HttpServletRequest req, HttpServletResponse res )
             throws ServletException, IOException
     {
-        System.out.println("Hello I am in DoGet");
+
         Username= req.getParameter("UserName");
-        System.out.println(Username);
+
         doPost(req, res);
     }
 
@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
     {
         //obtains a character-based output stream that enables
         //text data to be sent to the client
-        System.out.println("Hello I am in Do Post");
+
         output = res.getWriter();
 
         //specifies the MIME type of the response to the browser
@@ -56,13 +56,12 @@ public class LoginServlet extends HttpServlet {
         //the servlet as part of a post request
         Username = req.getParameter( "UserName" );
         Password = req.getParameter( "PassWord" );
-        System.out.println(Username);
-        System.out.println(Password);
+
         Account Acct = new Account(Username, Password);
         if (!Acct.signIn().equals("")) {
 
             CustomerName = Acct.signIn().toString();
-            System.out.println(CustomerName);
+
             showSuccess();
         }
         else {
@@ -80,12 +79,12 @@ public class LoginServlet extends HttpServlet {
 
         Buf.append("<TABLE ALIGN='center'>\n");
         Buf.append("<TR>\n");
-        Buf.append("<TD><button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration:none \"><a href=\"/app/Web/accountOverview.html\">Account Overview</a></button></TD>\n");
+        Buf.append("<TD><button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration:none \"><a href=\"/jsp/AccountOverview.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display')>Account Overview</a></button>");
         Buf.append("<TD>\n");
         Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration:none;\"><a href=\"/jsp/PreopenAccount.jsp\" TARGET='display'>Open Account</a></button>");
         Buf.append("</TD>\n");
         Buf.append("<TD>\n");
-        Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration: none\"><a href=\"jsp/PreWithdraw.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display') >Withdraw</a></button>");
+        Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration: none\"><a href=\"/jsp/PreWithdraw.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display') >Withdraw</a></button>");
         Buf.append("</TD>\n");
         Buf.append("<TD>\n");
         Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration: none\"><a href=\"/jsp/PreDeposit.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display') >Deposit</a></button>");
@@ -93,7 +92,7 @@ public class LoginServlet extends HttpServlet {
         Buf.append("<TD>\n");
         Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px;text-decoration: none\"><a href=\"/jsp/PreTransfer.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display'>Transfer</a></button>");
         Buf.append("</TD>\n");
-        Buf.append("<TD><button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px;text-decoration: none\"><a href=\"/app/Web/inquireTransaction.html\">Inquire Transaction</a></button></TD>\n");
+        Buf.append("<TD><button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px;text-decoration: none\"><a href=\"/jsp/PreInqueryTransction.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display'>Inquire Transaction</a></button></TD>\n");
         Buf.append("</TR>\n");
         Buf.append("</TABLE>\n");
         Buf.append("</FORM>\n");
