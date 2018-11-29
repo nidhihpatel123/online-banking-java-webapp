@@ -1,5 +1,6 @@
 <%@ page import="org.omg.CORBA.Request" %>
 <%@ page import="javax.swing.*" %>
+<link href="../css/comman.css" rel="stylesheet" type="text/css">
 <%@ page import="com.nidhi.entities.CheckingAccount" %>
 <%@ page import="com.nidhi.entities.Transaction" %>
 <%@ page import="com.nidhi.entities.SavingsAccount" %><%--
@@ -62,7 +63,7 @@ System.out.println(AccType);
 <head>
     <title>Title</title>
 </head>
-<body>
-<h1><%=depositStatus%></h1>
+<body background="../images/bg15.jpg">
+<h1 class="msgresult"><%=depositStatus%></h1>
 </body>
 </html>

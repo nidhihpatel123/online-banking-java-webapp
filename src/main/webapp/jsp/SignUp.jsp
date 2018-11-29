@@ -9,6 +9,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.lang.*" %>
 <%@ page import="com.nidhi.entities.*" %>
+<link href="../css/comman.css" rel="stylesheet" type="text/css">
 
 <%
 	String Username = new String("");
@@ -30,7 +31,7 @@
 %>
 
 		<HTML><HEAD></HEAD>
-		<BODY>
+		<BODY background="../images/bg15.jpg">
 		<h4 ALIGN='center'>Congratulations! You have an account with us. Thank you! You can login now.</h4>
 		<FORM NAME="LoginPage" ACTION="/LoginSrvlet" METHOD ="POST">
 		<TABLE cellPadding='3' ALIGN='center'>
@@ -44,7 +45,7 @@
 		<TD>PASSWORD:</TD>
 		<TD>
 		<INPUT TYPE='password' NAME='PassWord' Value='' SIZE='15'>
-		<INPUT TYPE='button' NAME='submitBTN' VALUE='Login' onClick="checkInputs()">
+		<INPUT TYPE='button' class="StyleBtn" NAME='submitBTN' VALUE='Login' onClick="checkInputs()">
 		</TD>
 		</TR>
 		</TABLE>

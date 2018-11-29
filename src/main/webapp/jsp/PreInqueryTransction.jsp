@@ -21,12 +21,12 @@
 <body background="/images/bg15.jpg">
 <FORM NAME="InquiryTransactionForm" ACTION="/InquiryTransaction" METHOD ="POST" >
 <table cellPadding=3 ALIGN='center'>
-    <tr>
+    <tr bgcolor='#F1F1FD'>
         <td><label class="StyleLabel" name="start">Start Date: </label></td>
         <td ><input class="StyleText" name="startDate" type="date"></td>
     </tr>
     <br>
-    <tr>
+    <tr bgcolor='#F1F1FD'>
         <td><label  class="StyleLabel" name="end">End Date: </label></td>
         <td ><input class="StyleText" name="endDate" type="date"></td><br>
     </tr>

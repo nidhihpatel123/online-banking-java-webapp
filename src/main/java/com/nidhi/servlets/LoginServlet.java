@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
 
         Buf.append("<TABLE ALIGN='center'>\n");
         Buf.append("<TR>\n");
-        Buf.append("<TD><button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration:none \"><a href=\"/jsp/AccountOverview.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display')>Account Overview</a></button>");
+        Buf.append("<TD><button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px;\"><a  href=\"/jsp/AccountOverview.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display')>Account Overview</a></button>");
         Buf.append("<TD>\n");
         Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px; text-decoration:none;\"><a href=\"/jsp/PreopenAccount.jsp\" TARGET='display'>Open Account</a></button>");
         Buf.append("</TD>\n");
