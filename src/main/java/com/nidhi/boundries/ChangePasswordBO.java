@@ -88,7 +88,7 @@ public class ChangePasswordBO extends JFrame implements ActionListener {
          if(newPassword.equals(reNewPassword)){
 
             Account Acc = new Account(username, password, newPassword);
-            if(Acc.changePassword()) {
+            if(Acc.changepswd()) {
                 JOptionPane.showMessageDialog(null, "Password Changed", "Confirmation", JOptionPane.INFORMATION_MESSAGE);
             }
             else{JOptionPane.showMessageDialog(null, "Something Wrong!", "Confirmation", JOptionPane.INFORMATION_MESSAGE);}

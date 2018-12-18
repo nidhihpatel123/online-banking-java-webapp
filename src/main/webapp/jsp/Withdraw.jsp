@@ -18,7 +18,11 @@ String withdrawFromAcc = request.getParameter("fromAccount");
 String AccType = withdrawFromAcc.substring(0,8);
 String balance = request.getParameter("AmountField");
 String WithdrawStatus = "";
-
+    System.out.println(uname);
+    System.out.println(customerName);
+    System.out.println(withdrawFromAcc);
+    System.out.println(AccType);
+    System.out.println(balance);
 
 
     if (AccType.equals("Select Account")) {

@@ -33,23 +33,6 @@
 		<HTML><HEAD></HEAD>
 		<BODY background="../images/bg15.jpg">
 		<h4 ALIGN='center'>Congratulations! You have an account with us. Thank you! You can login now.</h4>
-		<FORM NAME="LoginPage" ACTION="/LoginSrvlet" METHOD ="POST">
-		<TABLE cellPadding='3' ALIGN='center'>
-		<TR bgcolor='#d3d3d3'>
-		<TD>USERNAME:</TD>
-		<TD>
-		<INPUT TYPE='text' NAME='UserName' Value='<%= Username %>' SIZE='15' focused>
-		</TD>
-		</TR>
-		<TR bgcolor="#d3d3d3">
-		<TD>PASSWORD:</TD>
-		<TD>
-		<INPUT TYPE='password' NAME='PassWord' Value='' SIZE='15'>
-		<INPUT TYPE='button' class="StyleBtn" NAME='submitBTN' VALUE='Login' onClick="checkInputs()">
-		</TD>
-		</TR>
-		</TABLE>
-		</FORM>
 		</BODY>
 		<SCRIPT LANGUAGE="JavaScript"> 
 		function checkInputs()

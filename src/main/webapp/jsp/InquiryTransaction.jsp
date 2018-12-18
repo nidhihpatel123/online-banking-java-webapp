@@ -71,28 +71,30 @@
     <br>
     <CENTER><input class="StyleBtn" type="submit" value="Search Transaction"></CENTER>
 </FORM>
+<div class="scrollit">
+    <table cellPadding=3 ALIGN='center' border="1px solid black">
+        <tr>
+            <th>Transaction Number</th>
+            <th>Transaction Balance</th>
+            <th>Transaction Type</th>
+            <th>Transaction Date</th>
+            <th>From Account</th>
+            <th>To Account</th>
+        </tr>
+        <tr>
+            <c:forEach var="line" items="${ComponentNames}">
+        <tr>
+            <td align="center">${line[0]}</td>
+            <td align="center">${line[1]}</td>
+            <td align="center">${line[2]}</td>
+            <td align="center">${line[3]}</td>
+            <td align="center">${line[4]}</td>
+            <td align="center">${line[5]}</td>
+        </tr>
+        </c:forEach>
 
-<table cellPadding=3 ALIGN='center' border="1px solid black">
-    <tr>
-        <th>Transaction Number</th>
-        <th>Transaction Balance</th>
-        <th>Transaction Type</th>
-        <th>Transaction Date</th>
-        <th>From Account</th>
-        <th>To Account</th>
-    </tr>
-    <tr>
-        <c:forEach var="line" items="${ComponentNames}">
-    <tr>
-        <td align="center">${line[0]}</td>
-        <td align="center">${line[1]}</td>
-        <td align="center">${line[2]}</td>
-        <td align="center">${line[3]}</td>
-        <td align="center">${line[4]}</td>
-        <td align="center">${line[5]}</td>
-    </tr>
-    </c:forEach>
+    </table>
+</div>
 
-</table>
 </body>
 </html>

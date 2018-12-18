@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 
         Username= req.getParameter("UserName");
 
-        doPost(req, res);
+
     }
 
     //a method included in class HttpServlet to respond
@@ -60,7 +60,8 @@ public class LoginServlet extends HttpServlet {
         Account Acct = new Account(Username, Password);
         if (!Acct.signIn().equals("")) {
 
-            CustomerName = Acct.signIn().toString();
+            CustomerName = Acct.signIn();
+            System.out.println(CustomerName );
 
             showSuccess();
         }
@@ -74,7 +75,7 @@ public class LoginServlet extends HttpServlet {
         StringBuffer Buf = new StringBuffer();
         Buf.append("<HTML><HEAD></HEAD>\n");
         Buf.append("<BODY bgcolor='#F1F1FD'>\n");
-        Buf.append("<h4 ALIGN='center'>Congratulations! You have an account with us. Thank you! You can login now.</h4>\n");
+        Buf.append("<h4 ALIGN='center'>Congratulations! You have an account with us.</h4>\n");
         Buf.append("<FORM NAME=\"LoginPage\" ACTION=\"/LoginSrvlet\" METHOD =\"POST\">\n");
 
         Buf.append("<TABLE ALIGN='center'>\n");
@@ -93,6 +94,9 @@ public class LoginServlet extends HttpServlet {
         Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px;text-decoration: none\"><a href=\"/jsp/PreTransfer.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display'>Transfer</a></button>");
         Buf.append("</TD>\n");
         Buf.append("<TD><button style=\"border: 1px solid black; height: 27px; width: 170px; font-size: 15px;text-decoration: none\"><a href=\"/jsp/PreInqueryTransction.jsp?userName=").append(Username).append("&CustomerName=").append(CustomerName).append("\" TARGET='display'>Inquire Transaction</a></button></TD>\n");
+        Buf.append("<TD>\n");
+        Buf.append("<button style=\"border: 1px solid black; height: 27px; width: 190px; font-size: 15px;text-decoration: none\"><a href=\'/jsp/PreChangePswd.jsp?User="+Username+"&Pass="+Password+"' TARGET='display'> Change Password </a></button>");
+        Buf.append("</TD>");
         Buf.append("</TR>\n");
         Buf.append("</TABLE>\n");
         Buf.append("</FORM>\n");

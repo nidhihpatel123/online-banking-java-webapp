@@ -6,6 +6,7 @@ package com.nidhi.entities;
 
 import com.nidhi.utilities.DBConnection;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ import java.sql.Statement;
 public class Account
 {
 	private String Username, Password, Password1, Name;
+	private String new_Password;
 
 	public Account(String UN, String PassW, String PassW1, String NM) {
 		Username = UN;
@@ -27,11 +29,17 @@ public class Account
 		Password = PassW;
 	}
 
-	public Account(String UN, String PassW, String newPassW1){
-	Username = UN;
-	Password = PassW;
-	Password1 =newPassW1;
-}
+//	public Account(String UN, String PassW, String newPassW1){
+//	Username = UN;
+//	Password = PassW;
+//	Password1 =newPassW1;
+//}
+
+	public Account(String UN, String PassW, String new_Pswd){
+		Username = UN;
+		Password = PassW;
+		new_Password =new_Pswd;
+	}
 
 	public boolean signUp() {
 		boolean done = !Username.equals("") && !Password.equals("") && !Password1.equals("") && Password.equals(Password1);
@@ -106,49 +114,41 @@ public class Account
 //	    return done;
 //	}
 
-	public boolean changePassword(){
-		boolean done = !Username.equals("") && !Password.equals("");
-		System.out.println(done);
+	public boolean changepswd(){
+		boolean done = !Username.equals("") && !Password.equals("") && !new_Password.equals("");
 		try {
 			if(done){
-				DBConnection DBcc = new DBConnection();
-				Connection conn = DBcc.openConn();
+				DBConnection dbconn = new DBConnection();
+				Connection conn = dbconn.openConn();
 				Statement stat = conn.createStatement();
-				String Sql_Command = "SELECT Username,Password FROM Account WHERE Username = '"+Username+"'AND Password= '"+Password+"'";
-				ResultSet Result= stat.executeQuery(Sql_Command);
-				System.out.println(Result);
-				boolean found = Result.next();
-				System.out.println(found);
-				if(found){
-					Sql_Command= "UPDATE Account SET Password= '"+Password1+"' WHERE Username = '"+Username+"'";
-					System.out.println(Sql_Command);
-					stat.executeUpdate(Sql_Command);
-
+				String Sql_cmd = "SELECT Username FROM Account WHERE Username = '"+Username+"' AND Password = '"+Password+"'";
+				System.out.println(Sql_cmd);
+				ResultSet result = stat.executeQuery(Sql_cmd);
+				if(result.next()){
+					String un = result.getString(1);
+					String sql_cmd2 = "UPDATE Account SET Password = '"+new_Password+"' WHERE Username = '"+Username+"' AND Password = '"+Password+"' ";
+					stat.executeUpdate(sql_cmd2);
 				}
-
 				stat.close();
-				DBcc.closeConn();
+				dbconn.closeConn();
 
 			}
 		}
-		catch(SQLException e)
-		{         done = false;
-			System.out.println("SQLException: " + e);
-			while (e != null)
-			{   System.out.println("SQLState: " + e.getSQLState());
-				System.out.println("Message: " + e.getMessage());
-				System.out.println("Vendor: " + e.getErrorCode());
-				e = e.getNextException();
-				System.out.println("");
-			}
+		catch (SQLException e){
+			 done = false;
+			System.out.println("SQLException" + e);
+			System.out.println("SQLState"+ e.getSQLState());
+			System.out.println("Message"+ e.getMessage());
+			System.out.println("Vendor" + e.getErrorCode());
+
 		}
-		catch (Exception e)
-		{         done = false;
-			System.out.println("Exception: " + e);
-			e.printStackTrace ();
+		catch (Exception e){
+			done = false;
+			System.out.println("Excetion" + e);
+			e.printStackTrace();
 		}
 		return done;
-	}
+}
 
 	public String signIn() {
 		boolean done = !Username.equals("") && !Password.equals("");

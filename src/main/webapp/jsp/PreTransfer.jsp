@@ -29,7 +29,7 @@
 
 <HTML><HEAD></HEAD>
 <BODY background="/images/bg15.jpg">
-    <FORM NAME="TransferForm" ACTION="/TransferServlet" METHOD ="POST" >
+    <FORM NAME="TransferForm" ACTION="Transfer.jsp" METHOD ="GET" >
         <INPUT TYPE='hidden' NAME='CustomerName' VALUE=<%=CustomerName%>>
         <INPUT TYPE='hidden' NAME='userName' VALUE=<%=uname%>>
 
@@ -40,17 +40,38 @@
                 <TD>
                     <select class="Styledrop" NAME="fromAccount">
                         <option selected value="Select from Account"> Select From Account</option>
-                      <c:forEach var="line"  items="${SavingAccNumbers}">
-                          <c:if test="${line != null || 'null'}">
-                              <option name="Saving" value="Savings - ${line}"> ****${line.substring(4,8)} - Savings</option>
-                          </c:if>
+                     <%
+                     for(int i=0; i< SavingaccNumbers.length; i++){
+                         if(SavingaccNumbers[i] != null){
+                        %>
+                        <option value="Savings - <%=SavingaccNumbers[i]%>">****<%=SavingaccNumbers[i].substring(4,8)%> - Savings</option>
+                        <%
+                         }
+                            }
+                     %>
+                        <%
+                        for(int i=0;i<CheckingaccNumbers.length;i++){
+                            if(CheckingaccNumbers[i] != null){
+                        %>
+                        <option value="Checking - <%=CheckingaccNumbers[i]%>">****<%=CheckingaccNumbers[i].substring(4,8)%> - Checking </option>
+                        <%
+                            }
+                            }
+                        %>
 
-                      </c:forEach>
-                        <c:forEach var="obj" items="${CheckingaccNumbers}">
-                            <c:if test="${obj != null || 'null'}">
-                                <option name="checking" value="Checking - ${obj}"> ****${obj.substring(4,8)} - Checking</option>
-                            </c:if>
-                        </c:forEach>
+
+
+                      <%--<c:forEach var="line"  items="${SavingAccNumbers}">--%>
+                          <%--<c:if test="${line != null || 'null'}">--%>
+                              <%--<option name="Saving" value="Savings - ${line}"> ****${line.substring(4,8)} - Savings</option>--%>
+                          <%--</c:if>--%>
+
+                      <%--</c:forEach>--%>
+                        <%--<c:forEach var="obj" items="${CheckingaccNumbers}">--%>
+                            <%--<c:if test="${obj != null || 'null'}">--%>
+                                <%--<option name="checking" value="Checking - ${obj}"> ****${obj.substring(4,8)} - Checking</option>--%>
+                            <%--</c:if>--%>
+                        <%--</c:forEach>--%>
                   </select>
 
                 </TD>

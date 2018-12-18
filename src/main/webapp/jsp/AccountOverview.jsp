@@ -44,7 +44,7 @@
     <title>Title</title>
 </head>
 <body background="/images/bg15.jpg">
-<h1 class="msgresult">Hello! <%=username%>,Here is Your Account Overview:</h1>
+<h1 class="msgresult">Hello! <%=username%>, Here is Your Account Overview:</h1>
 <table cellPadding=4 ALIGN='center' border="1px solid black">
     <tr>
         <th>Account Type</th>

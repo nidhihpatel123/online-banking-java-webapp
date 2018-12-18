@@ -29,7 +29,7 @@
 
 <HTML><HEAD></HEAD>
 <BODY background="/images/bg15.jpg">
-<FORM NAME="TransferForm" ACTION="/WithdrawServlet" METHOD ="POST" >
+<FORM NAME="TransferForm" ACTION="Withdraw.jsp" METHOD ="get" >
     <INPUT TYPE='hidden' NAME='CustomerName' VALUE=<%=CustomerName%>>
     <INPUT TYPE='hidden' NAME='userName' VALUE=<%=uname%>>
 

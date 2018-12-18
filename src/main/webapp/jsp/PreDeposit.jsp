@@ -29,7 +29,7 @@
 
 <HTML><HEAD></HEAD>
 <BODY background="/images/bg15.jpg">
-<FORM NAME="TransferForm" ACTION="/DepositServlet" METHOD ="POST" >
+<FORM NAME="TransferForm" ACTION="jsp/Deposit.jsp" METHOD ="POST" >
     <INPUT TYPE='hidden' NAME='CustomerName' VALUE=<%=CustomerName%>>
     <INPUT TYPE='hidden' NAME='userName' VALUE=<%=uname%>>
 
