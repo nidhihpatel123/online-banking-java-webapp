@@ -24,7 +24,7 @@ public class DBConnection {
             //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(URL,"root","Maldives0928");
+            connection = DriverManager.getConnection(URL,"root","");
             //connection = DriverManager.getConnection(URL, "tang", "xxxxxx");
         }
         catch ( Exception e ) {
